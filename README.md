@@ -1,36 +1,74 @@
-# SPELL CHECKER FOR DIRECTORIES
+# Directory Spell Checker
 
-This script provides a simple yet effective way to check spelling in text files within a specified directory (and optionally its subdirectories). It uses the **'pyspellchecker'** library for spell checking, **'tqdm'** for progress visualization, and **'chardet'** to handle file encoding detection.
+This script provides a robust solution for spell-checking files within a directory. It has an interactive CLI for corrections, supports custom dictionaries, backups, configuration files, and even integrates with Git!
 
 ## Features
 
-- User-specified directory for spell checking.
-- Option to specify file extensions to be checked.
-- Can recursively check subdirectories if chosen by the user.
-- Detects and provides context (line number and the line itself) for each spelling error.
-- Handles different file encodings gracefully.
-- Outputs errors both to the console and to a log file.
+- **Interactive CLI**: On detecting a misspelled word, the script allows you to ignore, correct or replace with a suggested word.
+- **Backup Option**: Before making corrections, the original file is backed up with a `.bak` extension.
+- **Custom Dictionaries**: Add your industry-specific terms to ensure they aren't flagged as errors.
+- **Configuration File Support**: Use a JSON configuration file to specify custom dictionary words and other settings.
+- **Git Integration**: The script can automatically commit changes to a Git repository.
 
-## Installation
+## Prerequisites
 
-First, you need to clone this repository:
-`git clone https://github.com/jbar2797/Spell-Checker-for-Directories.git`
+- Python 3.x
+- Required Python packages: `spellchecker`, `tqdm`, `gitpython`
+  ```bash
+  pip install pyspellchecker tqdm gitpython
+  ```
 
-Then CD into it
-`cd Spell-Checker-for-Directories`
+## Example Usage
 
-Install the required libraries:
-`pip install pyspellchecker tqdm chardet`
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/jbar2797/Spell-Checker-for-Directories.git
+    cd spell_check_directory.py
+    ```
 
-## Usage
+2. Let's say you have a directory named `MyDocs` in the `C:\Users\Alice\Documents` path and you want to check `.txt` and `.md` files for spelling errors. Additionally, you want to include subdirectories in the check and use a configuration file named `myconfig.json`.
 
-Run the script:
-`python spell_check_directory.py`
+Navigate to the directory where the `spell_check_script.py` script is located and run the following command ( this is where you cloned the repo ):
 
-Follow the prompts to specify the directory, file extensions, and whether to include subdirectories.
+```bash
+python spell_check_script.py --path C:\Users\Alice\Documents\MyDocs --extensions .txt,.md --subdirs --config config.json
+```
 
-After the scan is complete, if any spelling errors are detected, they will be displayed in the console and saved to a **'spelling_errors.log'** file inside a **'log'** folder within the specified directory.
+Explanation:
 
-## Contributions
+- `--path C:\Users\Alice\Documents\MyDocs`: This specifies the directory you want to spell-check.
+  
+- `--extensions .txt,.md`: This tells the script to only check files that have the `.txt` and `.md` extensions.
+  
+- `--subdirs`: This flag tells the script to also scan and check files inside subdirectories of `MyDocs`.
+  
+- `--config myconfig.json`: This uses `myconfig.json` as the configuration file for custom dictionary words and other settings.
 
-Contributions are welcome! Please feel free to submit a pull request or open an issue to discuss potential improvements or fixes.
+After running the script, you'll be interactively prompted for actions on any misspelled words it detects. Once done, if you have enabled the Git option in the configuration file and your directory is a Git repository, the script will automatically commit the changes.
+
+
+### Arguments
+
+- `--path` : Specify the directory path to check (default is the current directory).
+- `--extensions` : Comma-separated file extensions to check (default is `.txt`).
+- `--subdirs` : If included, the script will also scan subdirectories.
+- `--config` : Path to the configuration file (default is `config.json`).
+
+### Configuration File (`config.json`)
+
+You can use a configuration file to specify custom dictionary words and other settings:
+
+```json
+{
+    "custom_dictionary": ["specificWord1", "specificWord2"],
+    "git_commit": true
+}
+```
+
+## Contributing
+
+Pull requests are welcome! For major changes, please open an issue first to discuss the change you'd like to make.
+
+## License
+
+MIT License. See [LICENSE](LICENSE) for more information.
