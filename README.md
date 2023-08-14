@@ -14,8 +14,10 @@ This script provides a simple yet effective way to check spelling in text files 
 ## Installation
 
 First, you need to clone this repository:
-`git clone [Your Repository URL]
-cd [Your Repository Directory Name]`
+`git clone https://github.com/jbar2797/Spell-Checker-for-Directories.git`
+
+Then CD into it
+`cd Spell-Checker-for-Directories`
 
 Install the required libraries:
 `pip install pyspellchecker tqdm chardet`
