@@ -23,7 +23,7 @@ This script provides a robust solution for spell-checking files within a directo
 1. Clone the repository:
     ```bash
     git clone https://github.com/jbar2797/Spell-Checker-for-Directories.git
-    cd spell_check_directory.py
+    cd Spell-Checker-for-Directories
     ```
 
 2. Let's say you have a directory named `MyDocs` in the `C:\Users\Alice\Documents` path and you want to check `.txt` and `.md` files for spelling errors. Additionally, you want to include subdirectories in the check and use a configuration file named `myconfig.json`.
