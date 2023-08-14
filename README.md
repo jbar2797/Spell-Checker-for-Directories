@@ -26,7 +26,7 @@ This script provides a robust solution for spell-checking files within a directo
     cd Spell-Checker-for-Directories
     ```
 
-2. Let's say you have a directory named `MyDocs` in the `C:\Users\Alice\Documents` path and you want to check `.txt` and `.md` files for spelling errors. Additionally, you want to include subdirectories in the check and use a configuration file named `myconfig.json`.
+2. Let's say you have a directory named `MyDocs` in the `C:\Users\Alice\Documents` path and you want to check `.txt` and `.md` files for spelling errors. Additionally, you want to include subdirectories in the check and use a configuration file named `config.json`.
 
 Navigate to the directory where the `spell_check_script.py` script is located and run the following command ( this is where you cloned the repo ):
 
@@ -42,7 +42,7 @@ Explanation:
   
 - `--subdirs`: This flag tells the script to also scan and check files inside subdirectories of `MyDocs`.
   
-- `--config myconfig.json`: This uses `myconfig.json` as the configuration file for custom dictionary words and other settings.
+- `--config config.json`: This uses `config.json` as the configuration file for custom dictionary words and other settings.
 
 After running the script, you'll be interactively prompted for actions on any misspelled words it detects. Once done, if you have enabled the Git option in the configuration file and your directory is a Git repository, the script will automatically commit the changes.
 
@@ -56,7 +56,7 @@ After running the script, you'll be interactively prompted for actions on any mi
 
 ### Configuration File (`config.json`)
 
-You can use a configuration file to specify custom dictionary words and other settings:
+You can use a configuration file to specify custom dictionary words and other settings (dictionary will be empty and git_commit will be false by default):
 
 ```json
 {
